@@ -2,7 +2,7 @@ programa {
    inclua biblioteca Util-->u
   funcao inicio() {
    inteiro palpite, tentativas= 1
-   logico ganhou=falso
+   logico finalizar=falso
    faca{
    escreva("Escreva seu ",tentativas,"º palpite? ")
   leia(palpite)
@@ -10,11 +10,15 @@ programa {
   tentativas++
   se(palpite==u.sorteia(1,10)){
     escreva("parabens voce acertou o palpite 🤌")
-    ganhou=verdadeiro
+    finalizar=verdadeiro
   }senao{
   escreva("voce errou o palpite 🤣🤣🤣🤣\n")
-  ganhou=falso
+  finalizar=falso
    }//Fim senao
-  }enquanto(ganhou!=verdadeiro)
+   se(tentativas>10){
+    escreva("\nvoce atingiu o maximo de tentativas\n")
+    finalizar=verdadeiro
+   }
+  }enquanto(finalizar!=verdadeiro)
+  }
  }
-}
